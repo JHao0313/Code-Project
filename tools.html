@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tools</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: lightpink;
+        }
+        #calculator, #bmiCalculator, #incomeTaxCalculator, #unitConvert {
+            display: none;
+        }
+    </style>
+    <script>
+        function closeAll() {
+            document.getElementById("calculator").style.display = "none";
+            document.getElementById("bmiCalculator").style.display = "none";
+            document.getElementById("incomeTaxCalculator").style.display = "none";
+            document.getElementById("unitConvert").style.display = "none";
+            document.querySelectorAll("input").forEach(el => el.value = "");
+            document.getElementById("simpleResult").innerHTML = "";
+            document.getElementById("bmiResult").innerHTML = "";
+            document.getElementById("taxResult").innerHTML = "";
+            document.getElementById("unitResult").innerHTML = "";
+        }
+
+        function showCalculator() {
+            closeAll();
+            document.getElementById("calculator").style.display = "block";
+        }
+
+        function showBMICalculator() {
+            closeAll();
+            document.getElementById("bmiCalculator").style.display = "block";
+        }
+
+        function showIncomeTaxCalculator() {
+            closeAll();
+            document.getElementById("incomeTaxCalculator").style.display = "block";
+        }
+
+        function unitConvertPlaceholder() {
+            closeAll();
+            document.getElementById("unitConvert").style.display = "block";
+        }
+
+        function simpleCalculation() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            let result;
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("simpleResult").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+            switch (operation) {
+                case 'add': result = num1 + num2; break;
+                case 'subtract': result = num1 - num2; break;
+                case 'multiply': result = num1 * num2; break;
+                case 'divide':
+                    if (num2 === 0) {
+                        document.getElementById("simpleResult").innerHTML = "Cannot divide by zero.";
+                        return;
+                    }
+                    result = num1 / num2; break;
+                case 'clear':
+                    document.getElementById('num1').value = '';
+                    document.getElementById('num2').value = '';
+                    document.getElementById("simpleResult").innerHTML = '';
+                    return;
+                default:
+                    document.getElementById("simpleResult").innerHTML = "Invalid operation.";
+                    return;
+            }
+            document.getElementById("simpleResult").innerHTML = "Result: " + result.toFixed(2);
+        }
+
+        function BMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                document.getElementById("bmiResult").innerHTML = "Please enter valid weight and height.";
+                return;
+            }
+            const bmi = weight / (height * height);
+            document.getElementById("bmiResult").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+        }
+
+        function calculateIncomeTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            if (isNaN(income) || income < 0) {
+                document.getElementById("taxResult").innerHTML = "Please enter a valid positive number.";
+                return;
+            }
+            let taxRate = 0;
+            if (income <= 5000) taxRate = 0.00;
+            else if (income <= 20000) taxRate = 0.01;
+            else if (income <= 35000) taxRate = 0.03;
+            else if (income <= 50000) taxRate = 0.08;
+            else if (income <= 70000) taxRate = 0.13;
+            else if (income <= 100000) taxRate = 0.21;
+            else if (income <= 250000) taxRate = 0.24;
+            else if (income <= 400000) taxRate = 0.245;
+            else if (income <= 600000) taxRate = 0.25;
+            else if (income <= 1000000) taxRate = 0.26;
+            else if (income <= 2000000) taxRate = 0.28;
+            else taxRate = 0.30;
+            const tax = income * taxRate;
+            const afterTax = income - tax;
+            document.getElementById("taxResult").innerHTML =
+                "Income Tax: RM " + tax.toFixed(2) +
+                "<br>Total Income After Tax: RM " + afterTax.toFixed(2);
+        }
+
+        function unitConvert() {
+            const input = parseFloat(document.getElementById("num3").value);
+            const unit = document.getElementById("unit").value;
+            if (isNaN(input)) {
+                document.getElementById("unitResult").innerHTML = "Please enter a valid number.";
+                return;
+            }
+            switch (unit) {
+                case "cmtoMetre":
+                    document.getElementById("unitResult").innerHTML = (input / 100).toFixed(2) + " metre";
+                    break;
+                case "metreToCm":
+                    document.getElementById("unitResult").innerHTML = (input * 100).toFixed(2) + " cm";
+                    break;
+                case "metreToKm":
+                    document.getElementById("unitResult").innerHTML = (input / 1000).toFixed(2) + " km";
+                    break;
+                case "kmToMetre":
+                    document.getElementById("unitResult").innerHTML = (input * 1000).toFixed(2) + " metre";
+                    break;
+                default:
+                    document.getElementById("unitResult").innerHTML = "Please select a valid conversion.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center; color: red;">What would you like to calculate?</h1>
+    <div class="w3-center w3-container">
+        <button onclick="showCalculator()" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red" style="width: 200px; background-color: white;">Simple Calculation</button>
+        <button onclick="showBMICalculator()" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red" style="width: 200px; background-color: white;">BMI</button>
+        <button onclick="showIncomeTaxCalculator()" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red" style="width: 200px; background-color: white;">Income Tax</button>
+        <button onclick="unitConvertPlaceholder()" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red" style="width: 200px; background-color: white;">Unit Convert</button>
+    </div>
+
+    <div id="calculator">
+        <h1 style="text-align:center;">Simple Calculator</h1>
+        <fieldset style="text-align:center; width: 50%; margin: auto;">
+            <input type="number" id="num1" placeholder="Enter first number"><br>
+            <input type="number" id="num2" placeholder="Enter second number"><br>
+            <select id="operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+                <option value="clear">Clear</option>
+            </select><br>
+            <button onclick="simpleCalculation()" style="background-color: white;">Calculate</button>
+            <p id="simpleResult"></p>
+            <button onclick="closeAll()" style="background-color: white;">Close</button>
+        </fieldset>
+    </div>
+
+    <div id="bmiCalculator">
+        <h1 style="text-align:center;">BMI Calculator</h1>
+        <fieldset style="text-align:center; width: 50%; margin: auto;">
+            <input type="number" id="weight" placeholder="Weight in kg" step="any"><br>
+            <input type="number" id="height" placeholder="Height in m" step="any"><br>
+            <button onclick="BMI()" style="background-color: white;">Calculate</button>
+            <p id="bmiResult"></p>
+            <button onclick="closeAll()" style="background-color: white;">Close</button>
+        </fieldset>
+    </div>
+
+    <div id="incomeTaxCalculator">
+        <h1 style="text-align:center;">Income Tax Calculator</h1>
+        <fieldset style="text-align:center; width: 50%; margin: auto;">
+            <input type="number" id="income" placeholder="Annual Income"><br>
+            <button onclick="calculateIncomeTax()" style="background-color: white;">Calculate</button>
+            <p id="taxResult"></p>
+            <button onclick="closeAll()" style="background-color: white;">Close</button>
+        </fieldset>
+    </div>
+
+    <div id="unitConvert">
+        <h1 style="text-align:center;">Unit Converter</h1>
+        <fieldset style="text-align:center; width: 50%; margin: auto;">
+            <select id="unit">
+                <option value="">Select Conversion</option>
+                <option value="cmtoMetre">CM to M</option>
+                <option value="metreToCm">M to CM</option>
+                <option value="metreToKm">M to KM</option>
+                <option value="kmToMetre">KM to M</option>
+            </select><br>
+            <input type="number" id="num3" placeholder="Enter value"><br>
+            <button onclick="unitConvert()" style="background-color: white;">Convert</button>
+            <p id="unitResult"></p>
+            <button onclick="closeAll()" style="background-color: white;">Close</button>
+        </fieldset>
+    </div><br>
+    <div class="w3-center w3-container">
+        <a href="main.html" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red w3-margin-right" style="background-color: white;">Back To Main Page</a>
+    </div>
+</body>
+</html>

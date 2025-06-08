@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--A24DW1060 Ngu Jia Hao-->
+<html>
+<head>
+    <title>My Personal Info</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6,p {font-family: "Lato", sans-serif;}
+        body {background-color: rgb(238, 223, 176);}
+        a {color: blue;}
+        a:active {color: red;}
+    </style>
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+    </script>
+</head>
+<body>
+    <div class="w3-display-container">
+        <img src="background_1.avif" alt="photo_1" style="width:100%; height:600px; position: relative;">
+        <h1 style="position: absolute; top: 40%; left: 39%; color: white; background-color:rgb(92, 92, 92, 0.5); padding: 20px">My Personal Info Page</h1>
+    </div>
+    <div class="w3-container w3-padding-64 w3-center">
+        <h1>About Me</h1><br>
+        <img src="My_picture.jpeg" alt="photo_2" class="w3-circle w3-margin-left" style="width:200px; height:200px;"><br><br>
+        <h4 style="margin-left: 100px; margin-right: 100px">
+            Hello, welcome to my first page. My name is Ngu Jia Hao. I was born on 13 March 2006 and I am 19 years old.
+            I am living in Malaysia, specifically in the state of <a href="https://www.johor.gov.my/" target="_blank">Johor</a>.
+            I graduated from <a href="https://www.facebook.com/smktbijb/?locale=ms_MY" target="_blank">SMK Taman Bukit Indah</a> in 2024, where I completed my SPM examination.
+            I am currently studying at the <a href="https://www.utm.my/" target="_blank">University Technology Malaysia</a>, pursuing a Diploma in Computer Science.
+            I am Section 42 in the Faculty of Computing, and I am a first-year student. My matric number is A24DW1060.
+            I am passionate about programming and technology, and I hope to excel in my studies and future career.
+        </h4><br>
+    </div>
+    <div class="w3-display-container">
+        <img src="background_2.avif" alt="photo_2" style="width:100%; height:600px; position: relative;">
+        <h1 style="position: absolute; top: 40%; left: 46%; color: white; background-color:rgb(92, 92, 92, 0.5); padding: 20px">Talent</h1>
+    </div>
+    <div class="w3-container w3-padding-64 w3-center">
+        <h1>Technical Skill:</h1><br>
+        <p class="w3-wide"><i class="fa fa-code"></i> C++ Programming</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:100%">100%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-code"></i> Python Programming</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:90%">90%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-code"></i> Java Programming</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:85%">85%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-code"></i> HTML & CSS</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:80%">80%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-code"></i> JavaScript</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:75%">75%</div>
+        </div>
+    </div>
+    <div class="w3-container w3-padding-64 w3-center">
+        <h1>Language</h1>
+        <p class="w3-wide"><i class="fa fa-language"></i> Chinese</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:100%">100%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-language"></i> Malay</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:90%">90%</div>
+        </div>
+        <p class="w3-wide"><i class="fa fa-language"></i> English</p>
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-brown w3-center" style="width:80%">80%</div>
+        </div>
+    </div><br>
+    <div class="w3-display-container">
+        <img src="background_3.avif" alt="photo_4" style="width:100%; height:600px; position: relative;">
+        <h1 style="position: absolute; top: 40%; left: 46%; color: white; background-color:rgb(92, 92, 92, 0.5); padding: 20px">Interest</h1>
+    </div>
+    <div class="w3-content w3-container w3-row-padding">
+        <br>
+        <p class="w3-wide"><i class="fa fa-film"></i>Watching Drama</p>
+        <div class="w3-col m3">
+            <img src="20th_Century_Girl.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="20th Century Girl">
+        </div>
+        <div class="w3-col m3">
+            <img src="When_Life_Give_You_Tangerines.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="When Life Give You Tangerines">
+        </div>
+        <div class="w3-col m3">
+            <img src="Sweet_Home.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sweet Home">
+        </div>
+    </div>
+    <div class="w3-content w3-container w3-row-padding">
+        <p class="w3-wide"><i class="fa fa-gamepad"></i>Playing Game</p>
+        <div class="w3-col m3">
+            <img src="Honkai_Star_Rail.avif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Honkai: Star Rail">
+        </div>
+        <div class="w3-col m3">
+            <img src="onmyoji.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Onmyoji">
+        </div>
+        <div class="w3-col m3">
+            <img src="Reverse_1999.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Reverse: 1999">
+        </div>
+    </div>
+    <div class="w3-content w3-container w3-row-padding">
+        <p class="w3-wide"><i class="fa fa-spotify"></i>Kpop</p>
+        <div class="w3-col m3">
+            <img src="aespa.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="AESPA">
+        </div>
+        <div class="w3-col m3">
+            <img src="babymonster.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Babymonster">
+        </div>
+        <div class="w3-col m3">
+            <img src="nct_dream.webp" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="NCT Dream">
+        </div>
+    </div>
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
+        </div>
+    </div><br>
+    <div class="w3-container w3-center w3-padding-16">
+        <h1 class="w3-center">Resume</h1>
+        <a href="resume.html" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red w3-margin-right" target="_blank" style="background-color: white;">
+        <i class="fa fa-file-eye"></i> VIEW</a>
+        <a href="CV - Ngu Jia Hao.docx" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red w3-margin-right" download="Jia Hao CV" style="background-color: white;">
+        <i class="fa fa-download"></i> DOWNLOAD</a>
+    </div>
+    <div class="w3-center w3-container">
+        <a href="main.html" class="w3-button w3-round w3-border w3-border-black w3-hover-white w3-hover-border-red w3-margin-right" style="background-color: white;">Back To Main Page</a>
+    </div>
+</body>
+</html>
